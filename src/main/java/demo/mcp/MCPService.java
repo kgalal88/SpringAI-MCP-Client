@@ -26,11 +26,9 @@ public class MCPService {
         // Calling the chat model with the question
         String response = chatClient.prompt()
             .user(prompt)
-//            .tools(mcpClient.listTools())
             .toolCallbacks(toolCallbackProvider)
             .call()
             .content();
-
 
         return response;
     }
