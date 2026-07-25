@@ -133,6 +133,15 @@ curl -X POST http://localhost:8080/api/mcp/query \
 ```
 <img width="649" height="665" alt="image" src="https://github.com/user-attachments/assets/c3641a6f-3016-432b-8389-5fccbd25a2eb" />
 
+---
+
+```bash
+curl -X POST http://localhost:8080/api/mcp/query \
+  -H "Content-Type: application/json" \
+  -d '{"query": "get all user activities for U001"}'
+```
+<img width="760" height="588" alt="image" src="https://github.com/user-attachments/assets/0d789abd-1822-49df-9c12-a33f45f9943a" />
+
 
 ---
 
