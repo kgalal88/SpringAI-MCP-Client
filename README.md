@@ -37,6 +37,7 @@ SpringAI-Ollama-RAG/
 * **Java 17+**
 * **Maven 3.9+**
 * **Ollama** installed locally → [https://ollama.ai](https://ollama.ai)
+* Run the MCP Server in this repo: https://github.com/kgalal88/SpringAI-MCP-Server
 * (Optional) **Docker**
 
 ---
