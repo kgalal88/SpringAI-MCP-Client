@@ -1,10 +1,8 @@
 
-package demo.elastic.rag;
+package demo.elastic.mcp;
 
-import io.modelcontextprotocol.client.McpClient;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.context.annotation.Bean;
 
 @SpringBootApplication
 public class SpringAIRagApplication {

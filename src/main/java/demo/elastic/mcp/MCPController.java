@@ -1,4 +1,4 @@
-package demo.elastic.rag;
+package demo.elastic.mcp;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
