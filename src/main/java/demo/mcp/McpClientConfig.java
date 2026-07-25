@@ -1,4 +1,4 @@
-package demo.elastic.mcp;
+package demo.mcp;
 
 import org.springframework.ai.tool.ToolCallbackProvider;
 import org.springframework.ai.mcp.SyncMcpToolCallbackProvider;

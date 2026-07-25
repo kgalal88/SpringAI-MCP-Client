@@ -1,4 +1,4 @@
-package demo.elastic.mcp;
+package demo.mcp;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
