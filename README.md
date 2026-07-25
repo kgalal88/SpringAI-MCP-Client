@@ -156,9 +156,8 @@ Edit `application.yml` to modify:
 
 ---
 
-## 📄 License
-
-This project is open-source under the **Apache-2.0 License**.
+## 🚀 Related Medium Article
+https://medium.com/@khalid.mtwaly/building-an-ai-powered-mcp-application-with-spring-ai-ollama-and-model-context-protocol-mcp-89f2eb6e9dc3
 
 ---
 
