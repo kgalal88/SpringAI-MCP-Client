@@ -156,4 +156,3 @@ This project is open-source under the **Apache-2.0 License**.
 **Khalid Galal**
 
 **https://www.linkedin.com/in/khalidgalal**
-# SpringAI-MCP-Client
