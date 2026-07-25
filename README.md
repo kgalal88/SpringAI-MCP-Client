@@ -3,8 +3,7 @@
 A minimal **Model Context Protocol (MCP) Client** example built with **Spring Boot**, **Spring AI**, and **Ollama**. This project demonstrates how to:
  
 * Run a local LLM using **Ollama** (e.g., Llama, Mistral, Gemma)
-* Index documents using embeddings
-* Retrieve relevant context from a MCP Server
+* Retrieve relevant context from a MCP Server (refer to this MCP Server repo: https://github.com/kgalal88/SpringAI-MCP-Server)
 * Provide an API for answering user questions over your data
 
 ---
