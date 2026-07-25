@@ -122,15 +122,17 @@ docker run -d -p 9092:8080 --name my-ai-mcp-ollama-app chat-mcp-ollama:latest
 
 ---
 
-## 🧪 Testing the MCP Flow
+## 🧪 Testing the MCP Client Flow
 
 You can test via Postman, curl, or any HTTP tool:
 
 ```bash
 curl -X POST http://localhost:8080/api/mcp/query \
   -H "Content-Type: application/json" \
-  -d '{"query": "Get users data"}'
+  -d '{"query": "get all user profiles"}'
 ```
+<img width="649" height="665" alt="image" src="https://github.com/user-attachments/assets/c3641a6f-3016-432b-8389-5fccbd25a2eb" />
+
 
 ---
 
