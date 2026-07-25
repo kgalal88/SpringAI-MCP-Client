@@ -1,4 +1,4 @@
-# SpringAI Ollama RAG
+# SpringAI Ollama MCP Client
 
 A minimal **Retrieval-Augmented Generation (RAG)** example built with **Spring Boot**, **Spring AI**, and **Ollama**. This project demonstrates how to:
 
