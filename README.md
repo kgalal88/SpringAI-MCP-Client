@@ -94,7 +94,7 @@ Example Response:
 
 ```json
 {
-  "answer": "This project contains a Spring Boot RAG example..."
+  "answer": "This project contains a Spring Boot MCP example..."
 }
 ```
 
@@ -105,13 +105,13 @@ Example Response:
 To build the container:
 
 ```bash
-docker build -t chat-rag-ollama:latest .
+docker build -t chat-mcp-ollama:latest .
 ```
 
 To run:
 
 ```bash
-docker run -d -p 9092:8080 --name my-ai-rag-ollama-app --net elastic chat-rag-ollama:latest
+docker run -d -p 9092:8080 --name my-ai-mcp-ollama-app chat-mcp-ollama:latest
 ```
 
 > Ensure that the container can reach your **local Ollama instance**. You may need to expose Ollama with `OLLAMA_HOST=0.0.0.0`.
