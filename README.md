@@ -63,25 +63,14 @@ ollama pull llama3
 ```bash
 ollama run llama3
 ```
-4. **Run Elastic Search & Kibana**
-```
-docker run -d --name elasticsearch --net elastic \
-  -p 9200:9200 \
-  -e "discovery.type=single-node" \
-  -e "xpack.security.enabled=false" \
-  -e "xpack.security.http.ssl.enabled=false" \
-  docker.elastic.co/elasticsearch/elasticsearch:9.2.0
-```
-```
-docker run --name kib01 -d --net elastic -p 5601:5601 docker.elastic.co/kibana/kibana:9.2.0
-```
-5. **Build the Project**
+
+4. **Build the Project**
 
 ```bash
 mvn clean package -DskipTests
 ```
 
-6. **Run the Spring Boot Application**
+5. **Run the Spring Boot Application**
 
 ```bash
 java -jar target/springai-ollama-rag.jar
