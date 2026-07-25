@@ -3,8 +3,7 @@
 A minimal **Model Context Protocol (MCP) Client** example built with **Spring Boot**, **Spring AI**, and **Ollama**. This project demonstrates how to:
  
 * Run a local LLM using **Ollama** (e.g., Llama, Mistral, Gemma)
-* Index documents using embeddings
-* Retrieve relevant context from a MCP Server
+* Retrieve relevant context from a MCP Server (refer to this MCP Server repo: https://github.com/kgalal88/SpringAI-MCP-Server)
 * Provide an API for answering user questions over your data
 
 ---
@@ -22,7 +21,7 @@ A minimal **Model Context Protocol (MCP) Client** example built with **Spring Bo
 ## 📦 Project Structure
 
 ```
-SpringAI-Ollama-RAG/
+SpringAI-Ollama-MCP-Client/
 ├── src/main/java/...       # Spring Boot source code
 ├── src/main/resources/     # Configuration, application.yml
 ├── pom.xml                  # Maven dependencies
@@ -35,43 +34,48 @@ SpringAI-Ollama-RAG/
 
 ## 🧰 Prerequisites
 
-* **Java 17+**
+* **Java 21+**
 * **Maven 3.9+**
 * **Ollama** installed locally → [https://ollama.ai](https://ollama.ai)
+* Run the MCP Server in this repo: https://github.com/kgalal88/SpringAI-MCP-Server
 * (Optional) **Docker**
 
 ---
 
 ## 🔧 Setup Instructions
 
-1. **Install Ollama**
+1. **Run the MCP Server**
+
+Please refer to this repo: https://github.com/kgalal88/SpringAI-MCP-Server
+
+2. **Install Ollama**
 
 ```bash
 curl -fsSL https://ollama.ai/install.sh | sh
 ```
 
-2. **Pull an LLM Model** (example: llama3)
+3. **Pull an LLM Model** (example: llama3)
 
 ```bash
 ollama pull llama3
 ```
 
-3. **Run the Model**
+4. **Run the Model**
 
 ```bash
 ollama run llama3
 ```
 
-4. **Build the Project**
+5. **Build the Project**
 
 ```bash
 mvn clean package -DskipTests
 ```
 
-5. **Run the Spring Boot Application**
+6. **Run the Spring Boot Application**
 
 ```bash
-java -jar target/springai-ollama-rag.jar
+java -jar target/springai-ollama-mcp.jar
 ```
 
 ---
@@ -118,15 +122,26 @@ docker run -d -p 9092:8080 --name my-ai-mcp-ollama-app chat-mcp-ollama:latest
 
 ---
 
-## 🧪 Testing the MCP Flow
+## 🧪 Testing the MCP Client Flow
 
 You can test via Postman, curl, or any HTTP tool:
 
 ```bash
 curl -X POST http://localhost:8080/api/mcp/query \
   -H "Content-Type: application/json" \
-  -d '{"query": "Get users data"}'
+  -d '{"query": "get all user profiles"}'
 ```
+<img width="649" height="665" alt="image" src="https://github.com/user-attachments/assets/c3641a6f-3016-432b-8389-5fccbd25a2eb" />
+
+---
+
+```bash
+curl -X POST http://localhost:8080/api/mcp/query \
+  -H "Content-Type: application/json" \
+  -d '{"query": "get all user activities for U001"}'
+```
+<img width="760" height="588" alt="image" src="https://github.com/user-attachments/assets/0d789abd-1822-49df-9c12-a33f45f9943a" />
+
 
 ---
 
@@ -152,4 +167,3 @@ This project is open-source under the **Apache-2.0 License**.
 **Khalid Galal**
 
 **https://www.linkedin.com/in/khalidgalal**
-# SpringAI-MCP-Client
