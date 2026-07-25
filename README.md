@@ -21,7 +21,7 @@ A minimal **Model Context Protocol (MCP) Client** example built with **Spring Bo
 ## 📦 Project Structure
 
 ```
-SpringAI-Ollama-RAG/
+SpringAI-Ollama-MCP-Client/
 ├── src/main/java/...       # Spring Boot source code
 ├── src/main/resources/     # Configuration, application.yml
 ├── pom.xml                  # Maven dependencies
@@ -46,9 +46,7 @@ SpringAI-Ollama-RAG/
 
 1. **Run the MCP Server**
 
-```bash
 Please refer to this repo: https://github.com/kgalal88/SpringAI-MCP-Server
-```
 
 2. **Install Ollama**
 
