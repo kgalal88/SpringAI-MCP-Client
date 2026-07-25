@@ -4,8 +4,7 @@ A minimal **Model Context Protocol (MCP) Client** example built with **Spring Bo
  
 * Run a local LLM using **Ollama** (e.g., Llama, Mistral, Gemma)
 * Index documents using embeddings
-* Retrieve relevant context from a vector store
-* Augment a model prompt with retrieved context
+* Retrieve relevant context from a MCP Server
 * Provide an API for answering user questions over your data
 
 ---
