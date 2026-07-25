@@ -34,7 +34,7 @@ SpringAI-Ollama-RAG/
 
 ## 🧰 Prerequisites
 
-* **Java 17+**
+* **Java 21+**
 * **Maven 3.9+**
 * **Ollama** installed locally → [https://ollama.ai](https://ollama.ai)
 * Run the MCP Server in this repo: https://github.com/kgalal88/SpringAI-MCP-Server
@@ -44,34 +44,40 @@ SpringAI-Ollama-RAG/
 
 ## 🔧 Setup Instructions
 
-1. **Install Ollama**
+1. **Run the MCP Server**
+
+```bash
+Please refer to this repo: https://github.com/kgalal88/SpringAI-MCP-Server
+```
+
+2. **Install Ollama**
 
 ```bash
 curl -fsSL https://ollama.ai/install.sh | sh
 ```
 
-2. **Pull an LLM Model** (example: llama3)
+3. **Pull an LLM Model** (example: llama3)
 
 ```bash
 ollama pull llama3
 ```
 
-3. **Run the Model**
+4. **Run the Model**
 
 ```bash
 ollama run llama3
 ```
 
-4. **Build the Project**
+5. **Build the Project**
 
 ```bash
 mvn clean package -DskipTests
 ```
 
-5. **Run the Spring Boot Application**
+6. **Run the Spring Boot Application**
 
 ```bash
-java -jar target/springai-ollama-rag.jar
+java -jar target/springai-ollama-mcp.jar
 ```
 
 ---
