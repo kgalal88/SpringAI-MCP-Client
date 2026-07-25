@@ -1,11 +1,10 @@
-# SpringAI Ollama RAG
+# SpringAI Ollama MCP Client
 
-A minimal **Retrieval-Augmented Generation (RAG)** example built with **Spring Boot**, **Spring AI**, and **Ollama**. This project demonstrates how to:
-
+A minimal **Model Context Protocol (MCP) Client** example built with **Spring Boot**, **Spring AI**, and **Ollama**. This project demonstrates how to:
+ 
 * Run a local LLM using **Ollama** (e.g., Llama, Mistral, Gemma)
 * Index documents using embeddings
-* Retrieve relevant context from a vector store
-* Augment a model prompt with retrieved context
+* Retrieve relevant context from a MCP Server
 * Provide an API for answering user questions over your data
 
 ---
@@ -14,7 +13,6 @@ A minimal **Retrieval-Augmented Generation (RAG)** example built with **Spring B
 
 * **Spring Boot 3+** application using Spring AI
 * **Ollama** as the local LLM backend
-* **RAG pipeline** (Embeddings → Vector Store → Retrieval → LLM)
 * **REST endpoints** to query your documents
 * **Dockerfile** included for containerization
 * Lightweight, easy to extend
@@ -63,25 +61,14 @@ ollama pull llama3
 ```bash
 ollama run llama3
 ```
-4. **Run Elastic Search & Kibana**
-```
-docker run -d --name elasticsearch --net elastic \
-  -p 9200:9200 \
-  -e "discovery.type=single-node" \
-  -e "xpack.security.enabled=false" \
-  -e "xpack.security.http.ssl.enabled=false" \
-  docker.elastic.co/elasticsearch/elasticsearch:9.2.0
-```
-```
-docker run --name kib01 -d --net elastic -p 5601:5601 docker.elastic.co/kibana/kibana:9.2.0
-```
-5. **Build the Project**
+
+4. **Build the Project**
 
 ```bash
 mvn clean package -DskipTests
 ```
 
-6. **Run the Spring Boot Application**
+5. **Run the Spring Boot Application**
 
 ```bash
 java -jar target/springai-ollama-rag.jar
@@ -91,7 +78,7 @@ java -jar target/springai-ollama-rag.jar
 
 ## 📚 API Endpoints
 
-### **POST /api/rag/query**
+### **POST /api/mcp/query**
 
 Send a question and receive an answer augmented with indexed context.
 
@@ -107,22 +94,9 @@ Example Response:
 
 ```json
 {
-  "answer": "This project contains a Spring Boot RAG example..."
+  "answer": "This project contains a Spring Boot MCP example..."
 }
 ```
-
----
-
-## 📘 How RAG Works in This Project
-
-1. **Documents** are loaded from `/resources/data` or another location
-2. **Embeddings** are generated using the model via Spring AI
-3. Embeddings are stored in a **vector store** (in-memory or persistent)
-4. For every user query:
-
-   * Similar documents are retrieved using cosine similarity
-   * Retrieved context is injected into the model prompt
-   * Ollama generates an answer
 
 ---
 
@@ -131,27 +105,27 @@ Example Response:
 To build the container:
 
 ```bash
-docker build -t chat-rag-ollama:latest .
+docker build -t chat-mcp-ollama:latest .
 ```
 
 To run:
 
 ```bash
-docker run -d -p 9092:8080 --name my-ai-rag-ollama-app --net elastic chat-rag-ollama:latest
+docker run -d -p 9092:8080 --name my-ai-mcp-ollama-app chat-mcp-ollama:latest
 ```
 
 > Ensure that the container can reach your **local Ollama instance**. You may need to expose Ollama with `OLLAMA_HOST=0.0.0.0`.
 
 ---
 
-## 🧪 Testing the RAG Flow
+## 🧪 Testing the MCP Flow
 
 You can test via Postman, curl, or any HTTP tool:
 
 ```bash
-curl -X POST http://localhost:8080/api/rag/query \
+curl -X POST http://localhost:8080/api/mcp/query \
   -H "Content-Type: application/json" \
-  -d '{"query": "Explain the RAG architecture."}'
+  -d '{"query": "Get users data"}'
 ```
 
 ---
@@ -162,19 +136,8 @@ Edit `application.yml` to modify:
 
 * Ollama host
 * Model name
-* Vector store type
-* Embedding model
+* MCP Server config
 * Logging & performance
-
----
-
-## 🌱 Future Enhancements
-
-* File upload endpoint for dynamic ingestion
-* Support for PostgreSQL/Redis vector stores
-* Chunking strategies
-* Metadata filtering
-* Streaming responses
 
 ---
 
