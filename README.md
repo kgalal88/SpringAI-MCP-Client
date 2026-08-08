@@ -66,6 +66,23 @@ ollama pull llama3
 ollama run llama3
 ```
 
+**Optional Run vLLM**
+```bash
+docker run --rm \
+    --name vllm-qwen3 \
+    --gpus all \
+    -p 8000:8000 \
+    -v ~/.cache/huggingface:/root/.cache/huggingface \
+    -e HF_TOKEN=$HF_TOKEN \
+    --ipc=host \
+    vllm/vllm-openai:v0.10.2 \
+    Qwen/Qwen3-0.6B \
+    --gpu-memory-utilization 0.75 \
+    --max-model-len 8192 \
+    --enable-auto-tool-choice \
+    --tool-call-parser hermes
+```
+
 5. **Build the Project**
 
 ```bash
@@ -109,13 +126,13 @@ Example Response:
 To build the container:
 
 ```bash
-docker build -t chat-mcp-ollama:latest .
+docker build -t chat-mcp-client:latest .
 ```
 
 To run:
 
 ```bash
-docker run -d -p 9092:8080 --name my-ai-mcp-ollama-app chat-mcp-ollama:latest
+docker run -d -p 9090:8080 --name my-ai-mcp-client chat-mcp-client:latest
 ```
 
 > Ensure that the container can reach your **local Ollama instance**. You may need to expose Ollama with `OLLAMA_HOST=0.0.0.0`.

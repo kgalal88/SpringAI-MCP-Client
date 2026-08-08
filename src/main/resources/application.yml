@@ -1,13 +1,15 @@
 spring:
   ai:
-    ollama:
-      base-url: ${OLLAMA_URL:http://localhost:11434}
+    #ollama:
+    openai:
+      #base-url: ${OLLAMA_URL:http://localhost:11434}
+      base-url: ${VLLM_URL:http://localhost:8000}
+      api-key: dummy
       chat:
         options:
-          #model: gemma3:12b
-          model: llama3.1:8b
+          #model: llama3.1:8b
+          model: Qwen/Qwen3-0.6B
           temperature: 0.8
-      model: mxbai-embed-large
     mcp:
       client:
         enabled: true
@@ -16,8 +18,10 @@ spring:
         sse:
           connections:
             mcp-server:
-              url: http://localhost:8081
+              url: ${MCP_SERVER_URL:http://localhost:8081}
 logging:
   level:
     org.springframework.ai.mcp: DEBUG
     io.modelcontextprotocol: DEBUG
+    org.springframework.ai.openai: DEBUG
+    org.springframework.web.client: TRACE
